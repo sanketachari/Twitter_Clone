@@ -1,0 +1,72 @@
+Engine- async method Genserver  -
+
+
+
+Client:
+
+
+get followers - contact engine and get followers
+get tweets - contact engine and get tweets
+
+
+
+send tweet - send to engine -  engine will broadcast the tweet to followers
+receive tweet - print tweet send by server
+Add random followers - get all users, select random users, contact engine to update
+                       the followers
+
+
+Engine:
+
+
+get Users : give list of all users to client
+get tweets: give all tweets to user
+get followers: give all followers to user
+
+
+send tweet:  broadcast this tweet to the followers of user
+receive tweet: receive broadcasted tweet and send it to the user
+
+
+
+
+
+
+
+
+
+State of Engine: %{ "users" => %{pid1 => true/false, pid2 => true/false,....}, 
+                    "usernames" => %{"usernam1" => pid1, "usernam2" => pid2,....}
+                    "tweets" => %{"tweetId1" => {tweet1, pid1}, "tweetId2" => {tweet2, pid2}....}
+                    "user_details" => %{ pid => 
+                                                %{  "username" => "Unique name"
+                                                    "tweets" => [], 
+                                                    "retweets" => [],
+                                                    "followers" =>[], 
+                                                    "notifications" => %{source_pid => [tweet1, ...]},
+                                                    "subscribed" => [tweetId1, tweetId2, ....]
+                                                 }
+                                       }
+                    "hashtags" =>  %{ "hashtag1" => %{pid => [tweet1, tweet2, ...]}, ...}
+                    "mentions" =>  %{ "mention1" => %{"username1" => [tweet1, tweet2, ...]}, ...}            
+                  }
+
+Add notifications in state for tweets from following users - Done
+Add hashtags fields in state
+
+
+Future to dos: Need to add tweet-id
+
+
+
+To dos:
+
+Add unique user name to each pid
+Initialize all users as active
+Retweets
+Subscribe tweets
+Simulation: 
+    Simulate as many users as you can 
+    Simulate periods of live connection and disconnection for users 
+    Simulate a Zipf distribution on the number of subscribers. For accounts with a lot of subscribers,
+    increase the number of tweets. Make some of these messages re-tweets.  

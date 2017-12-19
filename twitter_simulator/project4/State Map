@@ -1,0 +1,1 @@
+state = %{"users" => [1,2], "user_details" => %{1 => %{"tweets" => [], "followers" =>[2], "notifications" => %{}}, 2 => %{"tweets" => [], "followers" =>[], "notifications" => %{}}}}
